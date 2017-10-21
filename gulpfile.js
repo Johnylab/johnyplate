@@ -9,6 +9,13 @@ var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
+var browserSyncRoutes = {
+    /**
+     * Comment this if you don't use a site.baseurl in _config.yml
+     * or change '/johnyplate' to your site.baseurl.
+     */
+    '/johnyplate': '_site'
+}
 
 gulp.task('jekyll-build', function (done) {
     browserSync.notify(messages.jekyllBuild);
@@ -35,7 +42,8 @@ gulp.task('jekyll-rebuild', ['bundle', 'jekyll-build'], function () {
 gulp.task('browser-sync', ['bundle', 'jekyll-build'], function() {
     browserSync({
         server: {
-            baseDir: '_site'
+            baseDir: '_site',
+            routes: browserSyncRoutes
         }
     });
 });
