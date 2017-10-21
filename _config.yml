@@ -18,7 +18,7 @@ defaults:
   values:
     layout: post
 description: My own Jekyll-Babel boilerplate.
-baseurl: ''
+baseurl: "/johnyplate"
 url: http://johnylab.net
 markdown: kramdown
 sass:
