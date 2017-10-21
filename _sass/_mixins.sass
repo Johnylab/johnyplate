@@ -1,0 +1,35 @@
+=media-query($device)
+    @media screen and (max-width: $device)
+        @content
+
+=media-greater($device)
+    @media screen and (min-width: $device + 1)
+        @content
+
+// ### [data-modules] ###
+
+$am-prefix: data
+
+@function split-braces($target)
+    $start: str-index($target, "[")
+    $end: str-index($target, "]")
+    @return str-slice($target, $start + 1, $end - 1)
+
+=module($name)
+    @if $am-prefix == null
+        @warn "You need to define $am-prefix variable"
+    $moduleName: #{$am-prefix}-#{$name}
+    @at-root [#{$moduleName}]
+        @content
+
+=variant($valueName)
+    $result: split-braces("#{&}")
+    @at-root [#{$result}~="#{$valueName}"]
+        @content
+
+=child($childName)
+    $result: split-braces(#{&})
+    @at-root [#{$result}-#{$childName}]
+        @content
+
+// ### end [data-modules] ###

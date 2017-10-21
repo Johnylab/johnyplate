@@ -1,0 +1,150 @@
++module(grid)
+    > *
+        display: inline-block
+        flex: 1 1 auto
+        min-width: 0%
+    +module(grid)
+        display: flex
+
+    +variant(row)
+        flex-direction: row
+        > *
+            display: inline-block
+
+    +variant(column)
+        flex-direction: column
+
+    +variant(wrap)
+        flex-wrap: wrap
+
+    +variant(nowrap)
+        flex-wrap: nowrap
+
+    +variant(center)
+        justify-content: center
+
+    +variant(start)
+        align-items: flex-start
+        align-content: flex-start
+        justify-content: flex-start
+
+    +variant(end)
+        align-items: flex-end
+        align-content: flex-end
+        justify-content: flex-end
+
+    +variant(justify)
+        justify-content: space-between
+
+    +variant(around)
+        justify-content: space-around
+
+    +variant(center)
+        align-items: center
+        align-content: center
+
+    +variant(stretch)
+        align-items: stretch
+
+    +variant(spacing)
+        +media-greater($on-palm)
+            > :not(:last-child):not([data-cell~="order-1"])
+                margin-right: $spacing-unit
+            > [data-cell~="order-1"]
+                margin-left: $spacing-unit
+
+        +media-query($on-palm)
+            > *
+                margin-bottom: $spacing-unit / 2
+
+    +variant(small-spacing)
+        +media-greater($on-palm)
+            > :not(:last-child):not([data-cell~="order-1"])
+                margin-right: $spacing-unit / 4
+            > [data-cell~="order-1"]
+                margin-left: $spacing-unit / 4
+
+        +media-query($on-palm)
+            > *
+                margin-bottom: $spacing-unit / 4
+
+    +module(cell)
+        +variant(1of2)
+            flex-basis: 50%
+
+        +variant(1of3)
+            flex-basis: 33.333%
+
+        +variant(1of4)
+            flex-basis: 25%
+
+        +variant(3of4)
+            flex-basis: 75%
+
+        +variant(2of3)
+            flex-basis: 66.666%
+
+        +variant(nospace)
+            margin-left: 0
+            margin-right: 0
+
+        +variant(shrink)
+            flex: 0 1 auto
+
+        +variant(center)
+            align-self: center
+
+        +variant(start)
+            align-self: flex-start
+
+        +variant(end)
+            align-self: flex-end
+
+        +variant(stretch)
+            align-self: stretch
+
+        +media-greater($on-palm)
+
+            +variant(order-1)
+                order: 1
+
+        +media-query($on-palm)
+            margin-left: 0
+            margin-right: 0
+
+            +variant(nospace)
+                margin-bottom: 0
+
+            +variant(fill)
+                width: 100%
+
+    +variant(cols-2)
+        flex-wrap: wrap
+        > *
+            display: inline-block
+            +media-greater($on-palm)
+                flex-basis: 45%
+                flex-basis: calc(50% - #{$spacing-unit})
+                &:nth-child(even)
+                    margin-right: 0
+    
+    +variant(row)
+        &[data-grid~="spacing"]
+            > :not(:last-child)
+                &, &[data-cell~="order-1"]
+                    margin-right: $spacing-unit / 2
+        &[data-grid~="small-spacing"]
+            > :not(:last-child)
+                &, &[data-cell~="order-1"]
+                    margin-right: $spacing-unit / 4
+
+    +media-query($on-palm)
+        &:not([data-grid~="row"])
+            flex-direction: column
+            height: auto
+            > *
+                display: block
+                height: auto
+                flex-basis: auto
+            > [data-grid]
+                display: flex

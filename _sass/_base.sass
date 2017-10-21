@@ -1,0 +1,187 @@
+// normalize.css
+html
+  line-height: 1.15
+  -ms-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%
+
+
+body, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, hr, dl, dd, ol, ul, figure 
+  margin: 0
+  padding: 0
+
+body 
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family
+  color: $text-color
+  background-color: $background-color
+  -webkit-font-feature-settings: "kern" 1
+  -moz-font-feature-settings: "kern" 1
+  -o-font-feature-settings: "kern" 1
+  font-feature-settings: "kern" 1
+  font-kerning: normal
+  box-sizing: border-box
+  *
+    box-sizing: inherit
+
+h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, ul, ol, dl, figure,
+%vertical-rhythm 
+  margin-top: $spacing-unit / 2
+  margin-bottom: $spacing-unit / 2
+
+img 
+  max-width: 100%
+  vertical-align: middle
+  border-style: none // normalize.css
+
+// normalize.css
+article, aside, footer, header, nav, section,
+figcaption, figure, main, figure>img,
+details, menu
+  display: block
+figure
+  margin: 1em 40px
+summary
+  display: list-item
+hr
+  box-sizing: content-box
+  height: 0
+  overflow: visible
+
+figcaption 
+  font-size: $small-font-size
+
+// normalize.css
+pre, code, kbd, samp
+  font-family: monospace, monospace
+  font-size: 1em
+
+ul, ol 
+  margin-left: $spacing-unit
+
+li 
+  >ul, >ol 
+    margin-bottom: 0
+
+h1, h2, h3, h4, h5, h6 
+  font-weight: $base-font-weight
+  line-height: 1.1
+
+@for $i from 1 through 6
+  h#{$i}
+    font-size: $base-font-size * 1.5 + $base-font-size / $i
+
+%transition
+  -webkit-font-smoothing: antialiased
+  backface-visibility: hidden
+  transform: translate3d(0, 0, 0)
+  transform-style: preserve-3d
+  filter: blur(.3px)
+  transition: .3s ease-in-out
+
+a
+  color: $brand-color
+  text-decoration: none
+  background-color: transparent // normalize.css IE 10
+  -webkit-text-decoration-skip: objects // normalize.css iOS 8+, Safari 8+
+  @extend %transition
+  &:hover, &:focus, &:active
+    color: $text-color
+    text-decoration: underline
+
+abbr[title]
+  border-bottom: none // normalize.css Chrome 57-, FF 39-
+  text-decoration: underline // normalize.css Chrome, Edge, IE, Opera, Safari
+  text-decoration: underline dotted // normalize.css Chrome, Edge, IE, Opera, Safari
+
+// normalize.css
+b, strong
+  font-weight: inherit
+b, strong
+  font-weight: bolder
+dfn
+  font-style: italic
+mark
+  background-color: #ff0
+  color: $text-color
+small
+  font-size: $small-font-size
+sub, sup
+  font-size: $small-font-size * .8
+  line-height: 0
+  position: relative
+  vertical-align: baseline
+sub
+  bottom: -0.25em
+sup
+  top: -0.5em
+audio, video, canvas
+  display: inline-block
+audio:not([controls])
+  display: none
+  height: 0
+svg:not(:root)
+  overflow: hidden
+template, [hidden]
+  display: none
+
+blockquote 
+  color: $grey-color
+  border-left: 4px solid $grey-color-light
+  padding-left: $spacing-unit / 2
+  font-style: italic
+  > :last-child 
+    margin-bottom: 0
+
+pre, code 
+  font-size: 15px
+  border: 1px solid $grey-color-light
+  border-radius: 3px
+  background-color: #eef
+
+code 
+  padding: 1px 5px
+
+pre 
+  padding: 8px 12px
+  overflow-x: auto
+  > code 
+    border: 0
+    padding-right: 0
+    padding-left: 0
+
+.page-content 
+  padding: $spacing-unit 0
+
+.page-heading 
+  font-size: 20px
+
+.wrapper 
+  max-width: $content-width
+  margin-right: auto
+  margin-left: auto
+  padding-right: $spacing-unit
+  padding-left: $spacing-unit
+  @extend %clearfix
+  @include media-query($on-laptop) 
+    padding-right: $spacing-unit / 2
+    padding-left: $spacing-unit / 2
+
+%clearfix 
+  &:after 
+    content: ""
+    display: table
+    clear: both
+
+.icon, .icon-colored
+  > svg
+    display: inline-block
+    width: 1em
+    height: 1em
+    vertical-align: text-top
+
+.icon
+  > svg
+    color: inherit
+    path 
+      fill: currentcolor

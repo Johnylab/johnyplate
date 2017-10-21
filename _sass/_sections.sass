@@ -1,0 +1,24 @@
+%section-spacing
+    padding-top: $spacing-unit * 2
+    padding-bottom: $spacing-unit * 2
+
+.section-
+
+    &hero
+        @extend %section-spacing
+    &features
+        @extend %section-spacing
+    &services
+        article
+            text-align: center
+            +media-greater($on-palm)
+                max-width: 16em
+        svg
+            max-width: 80%
+            +media-query($on-palm)
+                max-width: 60%
+    &about
+        @extend %section-spacing
+        line-height: 1.6
+        p
+            letter-spacing: 1px

@@ -1,0 +1,20 @@
+{
+  "name": "johnyplate",
+  "version": "1.0.0",
+  "description": "My preety awesome Jekyll-Babel-Boilerplate ;)",
+  "main": "gulpfile.js",
+  "scripts": {
+    "init": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johnylab/johnyplate.git"
+  },
+  "keywords": ["jekyll", "sass", "babel", "bootstrap"],
+  "author": "Johnylab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Johnylab/johnyplate/issues"
+  },
+  "homepage": "http://johnylab.net/johnyplate"
+}
