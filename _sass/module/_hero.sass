@@ -4,6 +4,12 @@
     padding-right: $spacing-unit
     background-color: $brand-color
     color: #fff
+    .wrapper
+        padding-left: 0
+        padding-right: 0
+    +media-query($on-laptop)
+        padding-left: $spacing-unit / 2
+        padding-right: $spacing-unit / 2
 
     a
         color: $compl-color
