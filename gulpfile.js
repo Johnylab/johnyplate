@@ -30,9 +30,13 @@ gulp.task('bundle', function() {
             input: './_scripts/main.js',
             format: 'iife'
         }))
-        .pipe(babel())
+        .pipe(babel({
+            "presets": ["es2015"]
+        }))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./js'));
+        .pipe(gulp.dest('./js'))
+        .on('error', console.log)
+        ;
   });
 
 gulp.task('jekyll-rebuild', ['bundle', 'jekyll-build'], function () {
