@@ -32,6 +32,10 @@
         figure, table, %vertical-rhythm
             @extend .wrapper
 
+        ul, ol
+            &:not(.seamless)
+                padding-left: $spacing-unit * 2
+
     h2 
         font-size: 32px
         @include media-query($on-laptop) 
