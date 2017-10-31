@@ -30,7 +30,10 @@ gulp.task('bundle', function() {
             input: './_scripts/main.js',
             format: 'iife'
         }))
-        .pipe(babel())
+        .on('error', console.log)
+        .pipe(babel({
+            "presets": ["es2015"]
+        }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./js'));
   });
