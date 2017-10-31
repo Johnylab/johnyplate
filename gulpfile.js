@@ -35,7 +35,8 @@ gulp.task('bundle', function() {
             "presets": ["es2015"]
         }))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./js'));
+        .pipe(gulp.dest('./js'))
+        ;
   });
 
 gulp.task('jekyll-rebuild', ['bundle', 'jekyll-build'], function () {
