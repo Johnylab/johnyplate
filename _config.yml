@@ -28,3 +28,4 @@ exclude:
 - desktop.ini
 - gulpfile.js
 - npm-debug.log
+- package.json
