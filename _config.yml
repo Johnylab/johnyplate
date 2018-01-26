@@ -5,19 +5,21 @@ collections:
   posts:
     title: Posts
     output: true
-  sections:
-    title: Sections (não alterar)
-    output: false
   uploads:
     title: Uploads
     output: true
 defaults:
 - scope:
     path: ''
+    type: pages
+  values:
+    layout: page
+- scope:
+    path: ''
     type: posts
   values:
     layout: post
-description: My own Jekyll-Babel boilerplate.
+description: My preety awesome Github Pages boilerplate ;)
 baseurl: "/johnyplate"
 url: http://johnylab.net
 markdown: kramdown

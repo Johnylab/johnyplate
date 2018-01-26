@@ -1,9 +1,27 @@
 ---
 layout: default
+sections:
+  hero:
+    title: Home
+    classes: hero
+  github:
+    title: Github
+  features:
+    title: Features
+    classes: hero dark
+  about:
+    title: Sobre
 ---
 
-{% for section in site.sections %}
+{% for s in page.sections %}
 
-<section class="page-content section-{{ section.name }} {{ section.classes }}" id="{{ section.name }}">{{ section.content }}</section>
+  {% assign id = s[0] %}
+  {% assign section = s[1] %}
+
+  <section class="page-content section-{{ id }} {{ section.classes }}" id="{{ id }}">
+
+    {% include sections/{{ id }}.html %}
+
+  </section>
 
 {% endfor %}
