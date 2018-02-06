@@ -44,7 +44,7 @@ gulp.task('bundle', function () {
         }))
         .on('error', console.log)
         .pipe(babel({
-            "presets": ["es2015"]
+            "presets": ["es2015", "minify"]
         }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./js'));
