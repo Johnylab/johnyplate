@@ -153,6 +153,23 @@ pre
     padding-right: 0
     padding-left: 0
 
+table
+  table-layout: fixed
+  border-collapse: collapse
+
+  tr
+    &:nth-of-type(odd)
+      background: $grey-color-light
+
+  th
+    background: $grey-color
+    color: #fff
+    font-weight: bold
+
+  th, td
+    padding: 5px
+    border: 1px solid #fff
+
 .page-content 
   padding: $spacing-unit 0
 
