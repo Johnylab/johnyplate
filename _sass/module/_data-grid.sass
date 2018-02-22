@@ -74,6 +74,8 @@
         +media-query($on-palm)
             > *
                 margin-bottom: $spacing-unit / 4
+            &[data-grid~="row"] > *
+                margin-bottom: 0
 
     +module(cell)
         +variant(1of2)
