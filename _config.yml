@@ -31,3 +31,4 @@ exclude:
 - gulpfile.js
 - npm-debug.log
 - package.json
+permalink: pretty/
