@@ -46,34 +46,50 @@
 
     +variant(spacing)
 
-        +media-greater($on-palm)
-            > :not(:last-child):not([data-cell~="order-1"])
-                margin-right: $spacing-unit / 2
-            > [data-cell~="order-1"]
-                margin-left: $spacing-unit / 2
-
-        +media-greater($on-laptop)
-            > :not(:last-child):not([data-cell~="order-1"])
-                margin-right: $spacing-unit
-            > [data-cell~="order-1"]
-                margin-left: $spacing-unit
-
-        +media-query($on-palm)
-            > *
-                margin-bottom: $spacing-unit / 2
-
-    +variant(small-spacing)
-        +media-greater($on-palm)
-            > :not(:last-child):not([data-cell~="order-1"])
-                margin-right: $spacing-unit / 4
-            > [data-cell~="order-1"]
-                margin-left: $spacing-unit / 4
+        > 
+            +media-greater($on-palm)
+                *
+                    margin-right: $spacing-unit / 2
+                & [data-cell~="order-1"]
+                    margin-left: $spacing-unit / 2
+            +media-greater($on-laptop)
+                *
+                    margin-right: $spacing-unit
+                & [data-cell~="order-1"]
+                    margin-left: $spacing-unit
+            & :last-child, [data-cell~="order-1"]
+                margin-right: 0
 
         +media-query($on-palm)
             > *
                 margin-bottom: $spacing-unit / 4
-            &[data-grid~="row"] > *
-                margin-bottom: 0
+            &[data-grid~="row"]
+                > *
+                    margin-right: $spacing-unit / 4
+                    margin-bottom: 0
+                & :last-child, [data-cell~="order-1"]
+                    margin-right: 0
+
+    +variant(small-spacing)
+
+        > 
+            +media-greater($on-palm)
+                *
+                    margin-right: $spacing-unit / 4
+                & [data-cell~="order-1"]
+                    margin-left: $spacing-unit / 4
+            & :last-child, [data-cell~="order-1"]
+                margin-right: 0
+
+        +media-query($on-palm)
+            > *
+                margin-bottom: $spacing-unit / 4
+            &[data-grid~="row"]
+                > *
+                    margin-right: $spacing-unit / 4
+                    margin-bottom: 0
+                & :last-child, [data-cell~="order-1"]
+                    margin-right: 0
 
     +module(cell)
         +variant(1of2)
@@ -125,29 +141,45 @@
             +variant(fill)
                 width: 100%
 
-    +variant(cols-2)
+    &%cols
         flex-wrap: wrap
-        > *
-            display: inline-block
-            +media-greater($on-palm)
-                flex-basis: 45%
-                flex-basis: calc(50% - #{$spacing-unit})
-                &:nth-child(even)
-                    margin-right: 0
-    
-    +variant(row)
         &[data-grid~="spacing"]
-            > :not(:last-child)
-                &, &[data-cell~="order-1"]
-                    margin-right: $spacing-unit
-                    +media-query($on-laptop)
-                        margin-right: $spacing-unit / 2
-        &[data-grid~="small-spacing"]
-            > :not(:last-child)
-                &, &[data-cell~="order-1"]
-                    margin-right: $spacing-unit / 4
-                    +media-query($on-palm)
-                        margin-right: $spacing-unit / 4
+            > *
+                margin-bottom: $spacing-unit
+                +media-query($on-laptop)
+                    margin-bottom: $spacing-unit / 2
+                +media-query($on-palm)
+                    margin-bottom: $spacing-unit / 4
+
+    +variant(cols-2)
+        @extend %cols
+        +media-greater($on-palm)
+            > *
+                flex-basis: 50%
+            > :nth-child(2n)
+                margin-right: 0
+            &[data-grid~="spacing"]
+                > *
+                    flex-basis: calc(50% - #{$spacing-unit / 4})
+        +media-greater($on-laptop)
+            &[data-grid~="spacing"]
+                > *
+                    flex-basis: calc(50% - #{$spacing-unit / 2})
+
+    +variant(cols-3)
+        @extend %cols
+        +media-greater($on-palm)
+            > *
+                flex-basis: 33.333%
+            > :nth-child(3n)
+                margin-right: 0
+            &[data-grid~="spacing"]
+                > *
+                    flex-basis: calc(33.333% - #{$spacing-unit * 0.334})
+        +media-greater($on-laptop)
+            &[data-grid~="spacing"]
+                > *
+                    flex-basis: calc(33.333% - #{$spacing-unit * 0.667})
 
     +media-query($on-palm)
         &:not([data-grid~="row"])
