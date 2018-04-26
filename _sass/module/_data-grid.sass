@@ -1,94 +1,115 @@
+=grid-spacing($size, $palm-size)
+    +media-greater($on-palm)
+        > :not(:last-child):not([data-cell~="order-1"])
+            margin-right: $size
+        > [data-cell~="order-1"]
+            margin-left: $size
+
+    +media-query($on-palm)
+        > *
+            margin-bottom: $palm-size
+        &[data-grid~="row"]
+            > *
+                margin-bottom: 0
+            > :not(:last-child):not([data-cell~="order-1"])
+                margin-right: $palm-size
+
 +module(grid)
     > *
         display: inline-block
+        -webkit-flex: 1 1 auto
         flex: 1 1 auto
         min-width: 0%
     +module(grid)
+        display: -webkit-flex
         display: flex
 
     +variant(row)
+        -webkit-flex-direction: row
         flex-direction: row
 
     +variant(column)
+        -webkit-flex-direction: column
         flex-direction: column
 
     +variant(wrap)
+        -webkit-flex-wrap: wrap
         flex-wrap: wrap
 
     +variant(nowrap)
+        -webkit-flex-wrap: nowrap
         flex-wrap: nowrap
 
     +variant(center)
+        -webkit-justify-content: center
         justify-content: center
 
     +variant(start)
+        -webkit-align-items: flex-start
         align-items: flex-start
+        -webkit-align-content: flex-start
         align-content: flex-start
+        -webkit-justify-content: flex-start
         justify-content: flex-start
 
     +variant(end)
+        -webkit-align-items: flex-end
         align-items: flex-end
+        -webkit-align-content: flex-end
         align-content: flex-end
+        -webkit-justify-content: flex-end
         justify-content: flex-end
 
     +variant(justify)
+        -webkit-justify-content: space-between
         justify-content: space-between
 
     +variant(around)
+        -webkit-justify-content: space-around
         justify-content: space-around
 
     +variant(center)
+        -webkit-align-items: center
         align-items: center
+        -webkit-align-content: center
         align-content: center
 
     +variant(stretch)
+        -webkit-align-items: stretch
         align-items: stretch
 
     +variant(spacing)
-
-        +media-greater($on-palm)
-            > :not(:last-child):not([data-cell~="order-1"])
-                margin-right: $spacing-unit / 2
-            > [data-cell~="order-1"]
-                margin-left: $spacing-unit / 2
-
-        +media-greater($on-laptop)
-            > :not(:last-child):not([data-cell~="order-1"])
-                margin-right: $spacing-unit
-            > [data-cell~="order-1"]
-                margin-left: $spacing-unit
-
-        +media-query($on-palm)
-            > *
-                margin-bottom: $spacing-unit / 2
+        +grid-spacing($spacing-unit, $spacing-unit / 2)
 
     +variant(small-spacing)
+        +grid-spacing($spacing-unit / 4, $spacing-unit / 4)
+    
+    +variant(column)
         +media-greater($on-palm)
             > :not(:last-child):not([data-cell~="order-1"])
-                margin-right: $spacing-unit / 4
+                margin-right: 0
             > [data-cell~="order-1"]
-                margin-left: $spacing-unit / 4
-
-        +media-query($on-palm)
-            > *
-                margin-bottom: $spacing-unit / 4
-            &[data-grid~="row"] > *
-                margin-bottom: 0
+                margin-left: 0
 
     +module(cell)
         +variant(1of2)
+            -webkit-flex-basis: 50%
             flex-basis: 50%
 
         +variant(1of3)
+            -webkit-flex-basis: 33.333%
             flex-basis: 33.333%
 
         +variant(1of4)
+            -webkit-flex-basis: 25%
             flex-basis: 25%
 
         +variant(3of4)
+            -webkit-flex-basis: 75%
             flex-basis: 75%
 
         +variant(2of3)
+            -webkit-flex-basis: 66.666%
             flex-basis: 66.666%
 
         +variant(nospace)
@@ -96,23 +117,29 @@
             margin-right: 0
 
         +variant(shrink)
+            -webkit-flex: 0 1 auto
             flex: 0 1 auto
 
         +variant(center)
+            -webkit-align-self: center
             align-self: center
 
         +variant(start)
+            -webkit-align-self: flex-start
             align-self: flex-start
 
         +variant(end)
+            -webkit-align-self: flex-end
             align-self: flex-end
 
         +variant(stretch)
+            -webkit-align-self: stretch
             align-self: stretch
 
         +media-greater($on-palm)
 
             +variant(order-1)
+                -webkit-order: 1
                 order: 1
 
         +media-query($on-palm)
@@ -125,37 +152,45 @@
             +variant(fill)
                 width: 100%
 
-    +variant(cols-2)
+    %cols
         flex-wrap: wrap
+        &[data-grid~="spacing"]
+            > *
+                margin-bottom: $spacing-unit
+                +media-query($on-palm)
+                    margin-bottom: $spacing-unit / 2
+        &[data-grid~="small-spacing"]
+            > *
+                margin-bottom: $spacing-unit / 4
+
+    +variant(cols-2)
+        @extend %cols
         > *
-            display: inline-block
             +media-greater($on-palm)
                 flex-basis: 45%
                 flex-basis: calc(50% - #{$spacing-unit})
-                &:nth-child(even)
+                &:nth-child(even):not([data-cell~="order-1"])
                     margin-right: 0
-    
-    +variant(row)
-        &[data-grid~="spacing"]
-            > :not(:last-child)
-                &, &[data-cell~="order-1"]
-                    margin-right: $spacing-unit
-                    +media-query($on-laptop)
-                        margin-right: $spacing-unit / 2
-        &[data-grid~="small-spacing"]
-            > :not(:last-child)
-                &, &[data-cell~="order-1"]
-                    margin-right: $spacing-unit / 4
-                    +media-query($on-palm)
-                        margin-right: $spacing-unit / 4
+
+    +variant(cols-3)
+        @extend %cols
+        > *
+            +media-greater($on-palm)
+                flex-basis: 30%
+                flex-basis: calc(33.333% - #{$spacing-unit})
+                &:nth-child(3n):not([data-cell~="order-1"])
+                    margin-right: 0
 
     +media-query($on-palm)
         &:not([data-grid~="row"])
+            -webkit-flex-direction: column
             flex-direction: column
             height: auto
             > *
                 display: block
                 height: auto
+                -webkit-flex-basis: auto
                 flex-basis: auto
             > [data-grid]
+                display: -webkit-flex
                 display: flex
