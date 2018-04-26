@@ -75,11 +75,13 @@ h1, h2, h3, h4, h5, h6
     font-size: $base-font-size * 1.5 + $base-font-size / $i
 
 %transition
-  -webkit-font-smoothing: antialiased
+  -webkit-backface-visibility: hidden
   backface-visibility: hidden
+  -webkit-transform: translate3d(0, 0, 0)
   transform: translate3d(0, 0, 0)
+  -webkit-transform-style: preserve-3d
   transform-style: preserve-3d
-  filter: blur(.3px)
+  -webkit-transition: .3s ease-in-out
   transition: .3s ease-in-out
 
 a
