@@ -23,6 +23,7 @@ description: My preety awesome Github Pages boilerplate ;)
 baseurl: "/johnyplate"
 url: http://johnylab.net
 markdown: kramdown
+permalink: pretty/
 sass:
   style: compressed
 exclude:
