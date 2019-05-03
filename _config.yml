@@ -1,6 +1,7 @@
 ---
 title: Johnylab's Johnyplate
 timezone: America/Sao_Paulo
+lang: pt_BR
 collections:
   posts:
     title: Posts
@@ -21,14 +22,19 @@ defaults:
     layout: post
 description: My preety awesome Github Pages boilerplate ;)
 baseurl: "/johnyplate"
-url: http://johnylab.net
+url: http://johnylab.ml
 markdown: kramdown
-permalink: pretty/
+permalink: pretty
 sass:
   style: compressed
 exclude:
+- Gemfile
+- Gemfile.lock
 - node_modules
-- desktop.ini
-- gulpfile.js
-- npm-debug.log
+- vendor/bundle/
+- vendor/cache/
+- vendor/gems/
+- vendor/ruby/
+- LICENSE
 - package.json
+- yarn.lock
