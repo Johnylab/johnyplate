@@ -7,6 +7,13 @@ nav-title: About
 
 My preety awesome Github Pages boilerplate ;)
 
+## Using
+
+1. Get [Jekyll](https://jekyllrb.com/) static generator.
+2. Run `npm install` or `yarn`.
+3. Run `bundle install`.
+4. `npm start`.
+
 ## Jekyll and HTML5
 
 ## Sass (language and syntax)
