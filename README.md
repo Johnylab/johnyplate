@@ -14,6 +14,12 @@ My preety awesome Github Pages boilerplate ;)
 3. Run `bundle install`.
 4. `npm start`.
 
+To fix jekyll --livereload flag on Windows:
+
+1. `gem uninstall eventmachine --force`
+2. `gem install eventmachine --platform ruby`
+
+
 ## Jekyll and HTML5
 
 ## Sass (language and syntax)
