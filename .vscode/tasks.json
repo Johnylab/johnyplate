@@ -6,6 +6,21 @@
     {
       "type": "npm",
       "script": "start",
+      "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "install",
+      "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "parcel",
+      "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "serve",
       "problemMatcher": [
         "$jekyll-error-watch",
         "$jekyll-warning-watch"
