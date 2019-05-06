@@ -1,7 +1,6 @@
 ---
 title: Johnylab's Johnyplate
 timezone: America/Sao_Paulo
-lang: pt_BR
 collections:
   posts:
     title: Posts
@@ -20,6 +19,7 @@ defaults:
     type: posts
   values:
     layout: post
+lang: pt_BR
 description: My preety awesome Github Pages boilerplate ;)
 baseurl: "/johnyplate"
 url: http://johnylab.ml
