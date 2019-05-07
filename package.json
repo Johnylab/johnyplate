@@ -4,7 +4,7 @@
   "description": "My preety awesome Jekyll-Babel-Boilerplate ;)",
   "scripts": {
     "parcel": "parcel watch _scripts/main.js --out-dir js --public-url ./",
-    "serve": "bundle exec jekyll serve --livereload",
+    "serve": "bundle exec jekyll s w --livereload",
     "start": "run-p parcel serve"
   },
   "repository": {
