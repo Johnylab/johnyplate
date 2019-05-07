@@ -25,6 +25,11 @@
         "$jekyll-error-watch",
         "$jekyll-warning-watch"
       ]
+    },
+    {
+      "type": "npm",
+      "script": "parcel:build",
+      "problemMatcher": []
     }
   ]
 }
