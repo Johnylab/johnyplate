@@ -1,8 +1,5 @@
-'use strict';
-
-(function () {
-  'use strict';
-
-  console.log('ES6! Yey! Thank you, Babel.');
-})();
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4uanMiXSwibmFtZXMiOlsiY29uc29sZSIsImxvZyJdLCJtYXBwaW5ncyI6Ijs7QUFBQyxhQUFZO0FBQ2I7O0FBRUFBLFVBQVFDLEdBQVIsQ0FBWSw2QkFBWjtBQUVDLENBTEEsR0FBRCIsImZpbGUiOiJtYWluLmpzIiwic291cmNlc0NvbnRlbnQiOlsiKGZ1bmN0aW9uICgpIHtcbid1c2Ugc3RyaWN0JztcblxuY29uc29sZS5sb2coJ0VTNiEgWWV5ISBUaGFuayB5b3UsIEJhYmVsLicpO1xuXG59KCkpO1xuIl19
+parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcelRequire,u="function"==typeof require&&require;function f(t,n){if(!r[t]){if(!e[t]){var i="function"==typeof parcelRequire&&parcelRequire;if(!n&&i)return i(t,!0);if(o)return o(t,!0);if(u&&"string"==typeof t)return u(t);var c=new Error("Cannot find module '"+t+"'");throw c.code="MODULE_NOT_FOUND",c}p.resolve=function(r){return e[t][1][r]||r},p.cache={};var l=r[t]=new f.Module(t);e[t][0].call(l.exports,p,l,l.exports,this)}return r[t].exports;function p(e){return f(p.resolve(e))}}f.isParcelRequire=!0,f.Module=function(e){this.id=e,this.bundle=f,this.exports={}},f.modules=e,f.cache=r,f.parent=o,f.register=function(r,t){e[r]=[function(e,r){r.exports=t},{}]};for(var c=0;c<t.length;c++)try{f(t[c])}catch(e){i||(i=e)}if(t.length){var l=f(t[t.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):n&&(this[n]=l)}if(parcelRequire=f,i)throw i;return f}({"SfOn":[function(require,module,exports) {
+window.$=document.querySelectorAll.bind(document),Node.prototype.on=window.on=function(o,t){this.addEventListener(o,t)},NodeList.prototype.__proto__=Array.prototype,NodeList.prototype.on=NodeList.prototype.addEventListener=function(o,t){this.forEach(function(e){e.on(o,t)})};
+},{}],"epB2":[function(require,module,exports) {
+"use strict";require("./libs/bling");var e=$("section");console.log(e.map(function(e){return e.className}));
+},{"./libs/bling":"SfOn"}]},{},["epB2"], null)

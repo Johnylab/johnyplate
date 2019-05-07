@@ -1,2 +1,5 @@
+import './libs/bling';
 
-console.log('ES6! Yey! Thank you, Babel.');
+const sections = $('section');
+
+console.log(sections.map(({ className }) => className));
