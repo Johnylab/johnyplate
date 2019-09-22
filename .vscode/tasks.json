@@ -30,6 +30,11 @@
       "type": "npm",
       "script": "parcel:build",
       "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "bundler",
+      "problemMatcher": []
     }
   ]
 }
