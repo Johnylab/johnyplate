@@ -1,32 +1,11 @@
-=grid-spacing($size, $palm-size)
-    +media-greater($on-palm)
-        > :not(:last-child):not([data-cell~="order-1"])
-            margin-right: $size
-        > [data-cell~="order-1"]
-            margin-left: $size
-
-    +media-query($on-palm)
-        > *
-            margin-bottom: $palm-size
-        > [data-cell~="order-1"]
-            margin-right: 0
-            margin-left: $palm-size
-        &[data-grid~="row"]
-            > *
-                margin-bottom: 0
-            > [data-cell~="order-1"]
-                margin-right: 0
-                margin-left: $palm-size
-                order: 1
-            > :not(:last-child):not([data-cell~="order-1"])
-                margin-right: $palm-size
-
 +module(grid)
+
     > *
         display: inline-block
         -webkit-flex: 1 1 auto
         flex: 1 1 auto
         min-width: 0%
+
     +module(grid)
         display: -webkit-flex
         display: flex
@@ -70,10 +49,14 @@
     +variant(justify)
         -webkit-justify-content: space-between
         justify-content: space-between
+        > *
+            flex: 0 1 auto
 
     +variant(around)
         -webkit-justify-content: space-around
         justify-content: space-around
+        > *
+            flex: 0 1 auto
 
     +variant(center)
         -webkit-align-items: center
@@ -86,10 +69,30 @@
         align-items: stretch
 
     +variant(spacing)
-        +grid-spacing($spacing-unit, $spacing-unit / 2)
+        margin-left: -$spacing-unit
+        margin-right: -$spacing-unit
+        > *
+            margin-left: $spacing-unit
+            margin-right: $spacing-unit
+        +media-query($on-palm)
+            margin-left: -$spacing-unit / 2
+            margin-right: -$spacing-unit / 2
+            > *
+                margin-bottom: $spacing-unit / 2
+            &[data-grid~="row"] > *
+                margin-bottom: 0
+                margin-left: $spacing-unit / 2
+                margin-right: $spacing-unit / 2
 
     +variant(small-spacing)
-        +grid-spacing($spacing-unit / 4, $spacing-unit / 4)
+        margin-left: -$spacing-unit / 4
+        margin-right: -$spacing-unit / 4
+        > *
+            margin-left: $spacing-unit / 4
+            margin-right: $spacing-unit / 4
+        +media-query($on-palm)
+            &:not([data-grid~="row"]) > *
+                margin-bottom: $spacing-unit / 4
 
     +module(cell)
         +variant(1of2)
@@ -111,10 +114,6 @@
         +variant(2of3)
             -webkit-flex-basis: 66.666%
             flex-basis: 66.666%
-
-        +variant(nospace)
-            margin-left: 0
-            margin-right: 0
 
         +variant(shrink)
             -webkit-flex: 0 1 auto
@@ -143,54 +142,9 @@
                 order: 1
 
         +media-query($on-palm)
-            margin-left: 0
-            margin-right: 0
-
-            +variant(nospace)
-                margin-bottom: 0
-
             +variant(fill)
-                width: 100%
-
-    &%cols
-        flex-wrap: wrap
-        &[data-grid~="spacing"]
-            > *
-                margin-bottom: $spacing-unit
-                +media-query($on-laptop)
-                    margin-bottom: $spacing-unit / 2
-                +media-query($on-palm)
-                    margin-bottom: $spacing-unit / 4
-
-    +variant(cols-2)
-        @extend %cols
-        +media-greater($on-palm)
-            > *
-                flex-basis: 50%
-            > :nth-child(2n)
-                margin-right: 0
-            &[data-grid~="spacing"]
-                > *
-                    flex-basis: calc(50% - #{$spacing-unit / 4})
-        +media-greater($on-laptop)
-            &[data-grid~="spacing"]
-                > *
-                    flex-basis: calc(50% - #{$spacing-unit / 2})
-
-    +variant(cols-3)
-        @extend %cols
-        +media-greater($on-palm)
-            > *
-                flex-basis: 33.333%
-            > :nth-child(3n)
-                margin-right: 0
-            &[data-grid~="spacing"]
-                > *
-                    flex-basis: calc(33.333% - #{$spacing-unit * 0.334})
-        +media-greater($on-laptop)
-            &[data-grid~="spacing"]
-                > *
-                    flex-basis: calc(33.333% - #{$spacing-unit * 0.667})
+                -webkit-align-self: stretch
+                align-self: stretch
 
     +media-query($on-palm)
         &:not([data-grid~="row"])
