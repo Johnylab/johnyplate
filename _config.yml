@@ -37,4 +37,5 @@ exclude:
 - vendor/ruby/
 - LICENSE
 - package.json
+- package-lock.json
 - yarn.lock

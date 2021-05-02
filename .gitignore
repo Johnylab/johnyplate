@@ -5,5 +5,3 @@ _site
 desktop.ini
 npm-debug.log
 node_modules
-Gemfile.lock
-package-lock.json

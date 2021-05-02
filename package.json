@@ -6,7 +6,7 @@
     "bundler": "bundle update && gem uninstall eventmachine --force && gem install eventmachine --platform ruby",
     "parcel": "parcel watch _scripts/main.js --out-dir js --public-url ./",
     "parcel:build": "parcel build _scripts/main.js --out-dir js --no-source-maps",
-    "serve": "bundle exec jekyll s w --livereload",
+    "serve": "bundle exec jekyll s w",
     "start": "run-p parcel serve"
   },
   "repository": {
